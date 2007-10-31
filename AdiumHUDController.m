@@ -30,8 +30,8 @@
             statusTypeString = @"Offline";
             break;
     }
-    // fark: I have no idea what I'm doing with CoreAnimation. This sort of works, but there's 
-    //  got to be a better way to do this.
+
+    // fark: This animation stuff is a mess. I don't actually know what I'm doing.
     [[_statusType animator] setHidden:YES];
     [_statusType setStringValue:statusTypeString];
     [[_statusType animator] setHidden:NO];
@@ -45,12 +45,21 @@
 
 - (void) showHUDPanel
 {
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:0.3];
+    [_hudPanel setAlphaValue:0.0];
     [_hudPanel setIsVisible:YES];
+    [[_hudPanel animator] setAlphaValue:1.0];
+    [NSAnimationContext endGrouping];
 }
 
 - (void) hideHUDPanel
 {
-    [_hudPanel close];
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:0.3];
+    [[_hudPanel animator] setAlphaValue:0.0];
+    [[_hudPanel animator] close];
+    [NSAnimationContext endGrouping];
 }
 
 - (BOOL) _isVisible
@@ -66,5 +75,4 @@
         [self showHUDPanel];
     }
 }
-
 @end

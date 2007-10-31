@@ -8,7 +8,6 @@
 
 #import "AdiumHUDPanel.h"
 
-
 @implementation AdiumHUDPanel
 - (BOOL) canBecomeMainWindow { return YES; }
 - (BOOL) setHidesOnDeactivate { return NO; }
@@ -16,8 +15,7 @@
 
 - (void) awakeFromNib
 {
-    [[NSApplication sharedApplication] addWindowsItem:self
-					    title:[self title]
-				         filename:NO];
+    [[NSApplication sharedApplication] addWindowsItem:self title:[self title] filename:NO];
 }
+
 @end
