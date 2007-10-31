@@ -7,3 +7,4 @@ TODO:
  - Use the PTHotKey classes from the Adium project to manage the HUD hot key
  - Show chats inside the HUD
  - Ability to initiate a chat from the HUD
+ - Fade out HUD on dismiss
