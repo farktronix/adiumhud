@@ -10,6 +10,8 @@
 #import <Adium/AIStatus.h>
 #import <Adium/AIStatusControllerProtocol.h>
 
+static NSString *pluginVersion = @"0.1";
+
 static OSStatus hotKeyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent, void* refCon )
 {
 	return [[AdiumHUDPlugin sharedHUDPlugin] sendCarbonEvent:inEvent];
@@ -17,6 +19,18 @@ static OSStatus hotKeyEventHandler(EventHandlerCallRef inHandlerRef, EventRef in
 
 AdiumHUDPlugin *_sAdiumHUDPlugin = nil;
 @implementation AdiumHUDPlugin
+
+- (id) init
+{
+    if (self = [super init]) {
+        _eventHandlerInstalled = NO;
+    }
+    return self;
+}
+
+#pragma mark -
+#pragma  mark HotKey handling
+
 + (AdiumHUDPlugin *)sharedHUDPlugin
 {
     return _sAdiumHUDPlugin;
@@ -105,13 +119,8 @@ AdiumHUDPlugin *_sAdiumHUDPlugin = nil;
     [_hudController setStatus:[[adium statusController] activeStatusState]];
 }
 
-- (id) init
-{
-    if (self = [super init]) {
-        _eventHandlerInstalled = NO;
-    }
-    return self;
-}
+#pragma mark -
+#pragma mark AIPlugin Support
 
 - (void)installPlugin
 {
@@ -133,5 +142,25 @@ AdiumHUDPlugin *_sAdiumHUDPlugin = nil;
     [_hudController release];
     [_sAdiumHUDPlugin release];
     _sAdiumHUDPlugin = nil;
+}
+
+- (NSString *)pluginAuthor
+{
+    return @"Jacob Farkas and Ryan Joseph";
+}
+
+- (NSString *)pluginVersion
+{
+    return pluginVersion;
+}
+
+- (NSString *)pluginDescription
+{
+    return @"Creates a Heads Up Display for managing Adium conversations";
+}
+
+- (NSString *)pluginURL
+{
+    return @"http://farktronix.com/AdiumHUD/";
 }
 @end

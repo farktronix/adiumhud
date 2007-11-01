@@ -57,6 +57,7 @@
 {
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:0.3];
+    // TODO: Fade the panel out as it closes
     [[_hudPanel animator] setAlphaValue:0.0];
     [[_hudPanel animator] close];
     [NSAnimationContext endGrouping];
