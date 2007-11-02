@@ -1,0 +1,7 @@
+TODO:
+ - Use the PTHotKey classes from the Adium project to manage the HUD hot key
+ - Allow editing of the hotkey combo
+ - Show chats inside the HUD
+ - Ability to initiate a chat from the HUD. Contact list inside the HUD
+ - Fade out HUD on dismiss
+ - Make the HUD a true borderless window. The title bar isn't really in the way, but it's not doing much good.
