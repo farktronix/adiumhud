@@ -79,10 +79,10 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				433DDFE10CD8360E00BA2186 /* AdiumHUDController.h */,
-				433DDFE20CD8360E00BA2186 /* AdiumHUDController.m */,
 				433DE12E0CD84DD800BA2186 /* AdiumHUDPlugin.h */,
 				433DE12F0CD84DD800BA2186 /* AdiumHUDPlugin.m */,
+				433DDFE10CD8360E00BA2186 /* AdiumHUDController.h */,
+				433DDFE20CD8360E00BA2186 /* AdiumHUDController.m */,
 				433DE20F0CD854BD00BA2186 /* AdiumHUDPanel.h */,
 				433DE2100CD854BD00BA2186 /* AdiumHUDPanel.m */,
 			);

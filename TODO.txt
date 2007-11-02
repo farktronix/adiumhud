@@ -4,4 +4,5 @@ TODO:
  - Show chats inside the HUD
  - Ability to initiate a chat from the HUD. Contact list inside the HUD
  - Fade out HUD on dismiss
+ - Close the hud when the focus changes
  - Make the HUD a true borderless window. The title bar isn't really in the way, but it's not doing much good.

@@ -128,7 +128,7 @@ AdiumHUDPlugin *_sAdiumHUDPlugin = nil;
     _sAdiumHUDPlugin = [self retain];
     [self registerHotKey];
     
-    _hudController = [[AdiumHUDController alloc] init];
+    _hudController = [[AdiumHUDController alloc] initWithAdium:adium];
     if (![NSBundle loadNibNamed:@"AdiumHUD" owner:_hudController]) {
         NSLog(@"Could not bundle load AdiumHUD UI");
         return;

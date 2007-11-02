@@ -10,6 +10,20 @@
 #import <Adium/AIStatus.h>
 
 @implementation AdiumHUDController
+- (id) initWithAdium:(NSObject<AIAdium>*)adium
+{
+    if ((self = [super init])) {
+        _adium = [adium retain];
+    }
+    return self;
+}
+
+- (void) dealloc
+{
+    [_adium release];
+    [super dealloc];
+}
+
 - (void) setStatus:(AIStatus *)status
 {
     NSString *statusTypeString = @"";
@@ -45,10 +59,31 @@
 
 - (void) showHUDPanel
 {
+    NSSet *allChats = [[_adium chatController] openChats];
+    if ( [allChats count] > 0) {
+        AIChat *chat = (AIChat *)[[allChats objectEnumerator] nextObject];
+        //Create the message view
+        messageDisplayController = [[[_adium interfaceController] messageDisplayControllerForChat:chat] retain];
+        //Get the messageView from the controller
+        controllerView_messages = [[messageDisplayController messageView] retain];
+        //scrollView_messages is originally a placeholder; replace it with controllerView_messages
+        [controllerView_messages setFrame:[scrollView_messages documentVisibleRect]];
+        
+        // fark: I believe this is crashing if we bring up the HUD multiple times because the customView is actually the 
+        //  controller view
+        [[customView_messages superview] replaceSubview:customView_messages with:controllerView_messages];
+    }
+
+	//This is what draws our transparent background
+	//Technically, it could be set in MessageView.nib, too
+	[scrollView_messages setBackgroundColor:[NSColor clearColor]];
+
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:0.3];
     [_hudPanel setAlphaValue:0.0];
     [_hudPanel setIsVisible:YES];
+    [_hudPanel becomeMainWindow];
+    [_hudPanel makeKeyWindow];
     [[_hudPanel animator] setAlphaValue:1.0];
     [NSAnimationContext endGrouping];
 }
