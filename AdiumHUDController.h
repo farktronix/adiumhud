@@ -10,6 +10,11 @@
 @class AIStatus;
 @class AdiumHUDPanel;
 
+typedef enum {
+    kAdiumHUDPanelMinimized = 50,
+    kAdiumHUDPanelMaximized = 290
+} AdiumHUDSize;
+
 @interface AdiumHUDController : NSObject {
     NSObject<AIAdium> *_adium;
 
@@ -21,6 +26,8 @@
     
     NSObject<AIMessageDisplayController>	*messageDisplayController;
     
+    IBOutlet NSTextField                *messageEntry;
+    
     IBOutlet NSTextField *_statusType;
     IBOutlet NSTextField *_statusText;
 }
@@ -29,4 +36,5 @@
 - (void) showHUDPanel;
 - (void) hideHUDPanel;
 - (void) toggleHUDPanel;
+- (void) setHUDSize:(AdiumHUDSize)size;
 @end
