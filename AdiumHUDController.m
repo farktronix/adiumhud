@@ -13,13 +13,14 @@
 @implementation AdiumHUDController
 - (void) awakeFromNib
 {
-    [self setHUDSize:kAdiumHUDPanelMinimized];
+    [self resize];
 }
 
 - (id) initWithAdium:(NSObject<AIAdium>*)adium
 {
     if ((self = [super init])) {
         _adium = [adium retain];
+        self.panelSize = kAdiumHUDPanelMinimized;
         
         [[_adium notificationCenter] addObserver:self selector:@selector(chatDidOpen:) name:Chat_DidOpen object:nil];
         [[_adium notificationCenter] addObserver:self selector:@selector(chatWillClose:) name:Chat_WillClose object:nil];
@@ -32,19 +33,6 @@
     [_adium release];
     [[_adium notificationCenter] removeObserver:self];
     [super dealloc];
-}
-
-- (void) displayStatusText
-{
-    if ([_statusText isHidden]) {
-        NSRect panelFrame = [_hudPanel frame];
-        panelFrame.size.height += _statusText.frame.size.height;
-        [[_hudPanel animator] setFrame:panelFrame display:YES];
-    } else {
-        NSRect panelFrame = [_hudPanel frame];
-        panelFrame.size.height -= _statusText.frame.size.height;
-        [[_hudPanel animator] setFrame:panelFrame display:YES];
-    }
 }
 
 - (void) setStatus:(AIStatus *)status
@@ -77,48 +65,29 @@
     }
     
     // resize the window for the detailed status text if necessary
-    if (![statusText isEqualToString:@""]) {
+    if ([statusText isEqualToString:@""]) {
+        [[_statusText animator] setHidden:YES];
+    } else {
         [[_statusText animator] setHidden:YES];
         [_statusText setStringValue:statusText];
         [[_statusText animator] setHidden:NO];
-        NSRect panelFrame = [_hudPanel frame];
-        panelFrame.size.height += _statusText.frame.size.height;
-        [[_hudPanel animator] setFrame:panelFrame display:YES];
-    } else {
-        if (![_statusText isHidden]) {
-            [[_statusText animator] setHidden:YES];
-            NSRect panelFrame = [_hudPanel frame];
-            panelFrame.size.height -= _statusText.frame.size.height;
-            [[_hudPanel animator] setFrame:panelFrame display:YES];
-        }
     }
-    //[self displayStatusText];
+    
+    [self resize];
 }
 
 - (void) showHUDPanel
 {
-	//This is what draws our transparent background
-	//Technically, it could be set in MessageView.nib, too
-	[scrollView_messages setBackgroundColor:[NSColor clearColor]];
-
-    [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:0.3];
     [_hudPanel setAlphaValue:0.0];
     [_hudPanel setIsVisible:YES];
-    [_hudPanel becomeMainWindow];
-    [_hudPanel makeKeyWindow];
     [[_hudPanel animator] setAlphaValue:1.0];
-    [NSAnimationContext endGrouping];
 }
 
 - (void) hideHUDPanel
 {
-    [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:0.3];
     // TODO: Fade the panel out as it closes
     [[_hudPanel animator] setAlphaValue:0.0];
-    [[_hudPanel animator] close];
-    [NSAnimationContext endGrouping];
+    [[_hudPanel animator] setIsVisible:NO];
 }
 
 - (BOOL) _isVisible
@@ -135,13 +104,16 @@
     }
 }
 
-- (void) setHUDSize:(AdiumHUDSize)size
+- (void) resize
 {
     NSRect frame = [_hudPanel frame];
-    frame.size.height = size;
-    [[_hudPanel animator] setFrame:frame display:YES];
+    frame.size.height = self.panelSize;
     
-    if (size == kAdiumHUDPanelMaximized) {
+    if (![_statusText isHidden]) {
+        frame.size.height += _statusText.frame.size.height;
+    }
+    
+    if (self.panelSize == kAdiumHUDPanelMaximized) {
         [[scrollView_messages animator] setHidden:NO];
         [[controllerView_messages animator] setHidden:NO];
         [[customView_messages animator] setHidden:NO];
@@ -152,11 +124,13 @@
         [[customView_messages animator] setHidden:YES];
         [[messageEntry animator] setHidden:YES];
     }
+    
+    [[_hudPanel animator] setFrame:frame display:YES];
 }
 
 - (void) chatDidOpen:(NSNotification *)notif
 {
-    [self setHUDSize:kAdiumHUDPanelMaximized];
+    self.panelSize = kAdiumHUDPanelMaximized;
     
     // fark: this is messy and hacked. i doubt this will work for multiple simultaneous chats, since i've never tested that
     NSSet *allChats = [[_adium chatController] openChats];
@@ -175,9 +149,19 @@
 
 - (void) chatWillClose:(NSNotification *)notif
 {
-    [self setHUDSize:kAdiumHUDPanelMinimized];
+    self.panelSize = kAdiumHUDPanelMinimized;
     
     [[controllerView_messages animator] removeFromSuperview];
 }
 
+- (void) setPanelSize:(AdiumHUDSize)size
+{
+    _panelSize = size;
+    [self resize];
+}
+
+- (AdiumHUDSize) panelSize
+{
+    return _panelSize;
+}
 @end

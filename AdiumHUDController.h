@@ -12,11 +12,13 @@
 
 typedef enum {
     kAdiumHUDPanelMinimized = 50,
-    kAdiumHUDPanelMaximized = 290
+    kAdiumHUDPanelMaximized = 310
 } AdiumHUDSize;
 
 @interface AdiumHUDController : NSObject {
     NSObject<AIAdium> *_adium;
+    
+    AdiumHUDSize _panelSize;
 
     IBOutlet AdiumHUDPanel *_hudPanel;
     
@@ -36,5 +38,7 @@ typedef enum {
 - (void) showHUDPanel;
 - (void) hideHUDPanel;
 - (void) toggleHUDPanel;
-- (void) setHUDSize:(AdiumHUDSize)size;
+- (void) resize;
+
+@property (assign) AdiumHUDSize panelSize;
 @end

@@ -29,7 +29,7 @@
 			<object class="NSWindowTemplate" id="404622787">
 				<int key="NSWindowStyleMask">8211</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{598, 589}, {493, 289}}</string>
+				<string key="NSWindowRect">{{598, 578}, {493, 300}}</string>
 				<int key="NSWTFlags">1679295488</int>
 				<string key="NSWindowTitle">AdiumHUD</string>
 				<string key="NSWindowClass">AdiumHUDPanel</string>
@@ -42,7 +42,7 @@
 						<object class="NSTextField" id="205729823">
 							<reference key="NSNextResponder" ref="1070151948"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{160, 266}, {99, 17}}</string>
+							<string key="NSFrame">{{160, 277}, {99, 17}}</string>
 							<reference key="NSSuperview" ref="1070151948"/>
 							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
@@ -74,7 +74,7 @@
 						<object class="NSTextField" id="476972989">
 							<reference key="NSNextResponder" ref="1070151948"/>
 							<int key="NSvFlags">-2147483380</int>
-							<string key="NSFrame">{{118, 220}, {254, 38}}</string>
+							<string key="NSFrame">{{118, 231}, {254, 38}}</string>
 							<reference key="NSSuperview" ref="1070151948"/>
 							<reference key="NSWindow"/>
 							<bool key="NSViewIsLayerTreeHost">YES</bool>
@@ -96,7 +96,7 @@
 						<object class="NSTextField" id="591862229">
 							<reference key="NSNextResponder" ref="1070151948"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{268, 266}, {107, 17}}</string>
+							<string key="NSFrame">{{268, 277}, {107, 17}}</string>
 							<reference key="NSSuperview" ref="1070151948"/>
 							<reference key="NSWindow"/>
 							<bool key="NSViewIsLayerTreeHost">YES</bool>
@@ -209,7 +209,7 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{493, 289}</string>
+					<string key="NSFrameSize">{493, 300}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 				</object>
@@ -261,7 +261,7 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label" id="199025782">messageEntry</string>
+						<string key="label">messageEntry</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="706169165"/>
 					</object>
@@ -446,9 +446,9 @@
 					<reference ref="881245761"/>
 					<reference ref="881245761"/>
 					<reference ref="881245761"/>
-					<string>{{242, 549}, {493, 289}}</string>
+					<string>{{242, 538}, {493, 300}}</string>
 					<real value="0.000000e+00"/>
-					<string>{{242, 549}, {493, 289}}</string>
+					<string>{{242, 538}, {493, 300}}</string>
 					<reference ref="881245761"/>
 					<reference ref="881245761"/>
 					<reference ref="881245761"/>
@@ -489,32 +489,6 @@
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
-					<string key="className">AdiumHUDPanel</string>
-					<string key="superclassName">NSPanel</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey" id="522602156">IBProjectSource</string>
-						<string key="minorKey">AdiumHUDPanel.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">AdiumHUDController</string>
 					<string key="superclassName" id="422066522">NSObject</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -534,7 +508,7 @@
 							<string>_statusText</string>
 							<string>_statusType</string>
 							<string>customView_messages</string>
-							<reference ref="199025782"/>
+							<string>messageEntry</string>
 							<string>scrollView_messages</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -548,7 +522,7 @@
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<reference key="majorKey" ref="522602156"/>
+						<string key="majorKey" id="526672906">IBProjectSource</string>
 						<string key="minorKey">AdiumHUDController.h</string>
 					</object>
 				</object>
@@ -578,6 +552,32 @@
 						<reference key="minorKey" ref="502282753"/>
 					</object>
 				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">AdiumHUDPanel</string>
+					<string key="superclassName">NSPanel</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<reference key="majorKey" ref="526672906"/>
+						<string key="minorKey">AdiumHUDPanel.h</string>
+					</object>
+				</object>
 			</object>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
@@ -589,7 +589,7 @@ AYag0QAHAAhdSUIub2JqZWN0ZGF0YYABXxAPTlNLZXllZEFyY2hpdmVyrxCMAAsADAAxADUANgA8AD0A
 QQBFAE4AVgBoAHIACwBzAIMAhACMAI0AkACaAJsAnAChAKMAqACsALIAswC3ALwAxADNALAAzgDRANIA
 1wDgAOEA6gDvAPAA9QEHAQ0BHAEgASQBKAEpASoBLQEwAT8BQAFBAUQBTQFOAU8BUgFTAVgBYAFhAWwB
 bwFyAXMBeAGLAYwBjQGOAZYBngGfAacBqAALAakBqwGsAa8BsAHDAcYBxwHJAdwB8AIEAgUCBgIHAggC
-CQIKAgsCDAINAg4CDwIQAhECEgITAhQCFQIYAhsCNQJPAlACUQJSAlMCVAJVAJ8CVgJXAlgCWQJaAlsC
+CQIKAgsCDAINAg4CDwIQAhECEgITAhQCFQIYAhsCNQJPAlACUQJSAlMCVAJVAlYAnwJXAlgCWQJaAlsC
 XAJdAl4CXwJgAmECYgJjAmQCZQJoAmsCblUkbnVsbN8QEgANAA4ADwAQABEAEgATABQAFQAWABcAGAAZ
 ABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwALQAuAC8AMFZOU1Jvb3RWJGNsYXNz
 XU5TT2JqZWN0c0tleXNfEA9OU0NsYXNzZXNWYWx1ZXNfEBlOU0FjY2Vzc2liaWxpdHlPaWRzVmFsdWVz
@@ -605,7 +605,7 @@ c3RpbmF0aW9uWE5TU291cmNlV05TTGFiZWyAHIAKgAKAG9kAVwAOAFgAWQBaAFsAXABdAF4AXwBgAGEA
 YgBjAGQAZQBfAGRfEA9OU05leHRSZXNwb25kZXJXTlNGcmFtZVZOU0NlbGxYTlN2RmxhZ3NZTlNFbmFi
 bGVkWE5TV2luZG93W05TU3VwZXJ2aWV3XxAVTlNWaWV3SXNMYXllclRyZWVIb3N0gAuAGoAMgA4T////
 /4AAAQwJgA2ACwnXAFcADgBpAFoAagBcAF0AZQBsAG0AbgBvAGUAcVpOU1N1YnZpZXdzW05TRnJhbWVT
-aXplgA2AUYBKEQEAgE+ADYBQXxAXe3sxMTgsIDIyMH0sIHsyNTQsIDM4fX3YAHQADgB1AHYAdwB4AHkA
+aXplgA2AUYBKEQEAgE+ADYBQXxAXe3sxMTgsIDIzMX0sIHsyNTQsIDM4fX3YAHQADgB1AHYAdwB4AHkA
 egB7AHwAfQB+AH8AUwCBAIJbTlNDZWxsRmxhZ3NfEBFOU0JhY2tncm91bmRDb2xvclpOU0NvbnRlbnRz
 WU5TU3VwcG9ydF1OU0NvbnRyb2xWaWV3XE5TQ2VsbEZsYWdzMltOU1RleHRDb2xvchIEAf4AgBmAE4AP
 gBCAChIIQIAAgBhQ1AAOAIUAhgCHAIgAiQCKAItWTlNTaXplVk5TTmFtZVhOU2ZGbGFnc4ASI0AiAAAA
@@ -620,7 +620,7 @@ I9cAVwAOAFgAWgBcADIAXQC9AL4AvwDAAGUAwgC9gB+AIoAgEQEMgA2AIYAf2ABXAA4AaQBaAGoAXAAy
 AF0AxQC+AMcAyADJAGUAwgDFgC2AIoAvEQESgDGADYAhgC1fEBR7ezYsIDIwfSwgezE2MywgOTZ9fdIA
 NwA4AM8A0KQA0ACwALEAO1xOU0N1c3RvbVZpZXdfEBNjdXN0b21WaWV3X21lc3NhZ2Vz1AAOAE8AUABR
 AFIA1AAfANaAHIAlgAKAKdkAVwAOAFgAWQBaAFsAXABdAF4AXwBgANoA2wDAAGQAZQBfAGSAC4AagCaA
-JwmADYALCV8QF3t7MjY4LCAyNjZ9LCB7MTA3LCAxN3192AB0AA4AdQB2AHcAeAB5AHoA4gB8AH0AfgDm
+JwmADYALCV8QF3t7MjY4LCAyNzd9LCB7MTA3LCAxN3192AB0AA4AdQB2AHcAeAB5AHoA4gB8AH0AfgDm
 ANQA6ACCEgQB/kCAGYATgA+AKIAlEhBAhACAGNQADgCFAIYAhwCIAOwAigDugBIjQCoAAAAAAACAEREE
 FFtfc3RhdHVzVHlwZdQADgBPAFAAUQBSAPIAHwD0gByAK4ACgD3cAFcA9gAOAFgA9wBpAFoAXABdAPgA
 +QD6AF8A/AD9AP4A/wEAAQEAZQBfAQQAxQDFW05TSFNjcm9sbGVyWE5Tc0ZsYWdzW05TVlNjcm9sbGVy
@@ -644,10 +644,10 @@ ODU5NABcbWVzc2FnZUVudHJ51AAOAE8AUABRAFIBdQAfAXeAHIBGgAKAVNoBeQAOAXoBewF8AX0BfgF/
 AYABgQBfAYMBhAGFAYYBhwGIARQBiQArXE5TV2luZG93Vmlld1xOU1NjcmVlblJlY3RdTlNXaW5kb3dU
 aXRsZVlOU1dURmxhZ3NdTlNXaW5kb3dDbGFzc1xOU1dpbmRvd1JlY3RfEA9OU1dpbmRvd0JhY2tpbmdf
 EBFOU1dpbmRvd1N0eWxlTWFza1tOU1ZpZXdDbGFzc4ALgFOAUoBIEmQYBACASYBHESATgABfEBh7ezU5
-OCwgNTg5fSwgezQ5MywgMjg5fX1YQWRpdW1IVURdQWRpdW1IVURQYW5lbNIADgA+AEYBkIAwpQGRAFMA
+OCwgNTc4fSwgezQ5MywgMzAwfX1YQWRpdW1IVURdQWRpdW1IVURQYW5lbNIADgA+AEYBkIAwpQGRAFMA
 1ADyAVWAS4AKgCWAK4A/2ABXAA4AWABZAFoAWwBcAF0AXwBgAZkBmgDAAGQAZQBfgAuAGoBMgE0JgA2A
-C18QFnt7MTYwLCAyNjZ9LCB7OTksIDE3fX3YAHQADgB1AHYAdwB4AHkAegDiAHwAfQGiAOYBkQGlAIKA
-GYATgE6AKIBLEhBABACAGF8QD0N1cnJlbnQgU3RhdHVzOlp7NDkzLCAyODl90gA3ADgBqgCwowCwALEA
+C18QFnt7MTYwLCAyNzd9LCB7OTksIDE3fX3YAHQADgB1AHYAdwB4AHkAegDiAHwAfQGiAOYBkQGlAIKA
+GYATgE6AKIBLEhBABACAGF8QD0N1cnJlbnQgU3RhdHVzOlp7NDkzLCAzMDB90gA3ADgBqgCwowCwALEA
 O18QFXt7MCwgMH0sIHsxNDQwLCA4Nzh9fdIANwA4Aa0BrqIBrgA7XxAQTlNXaW5kb3dUZW1wbGF0ZVlf
 aHVkUGFuZWzSAA4APgGxAbKAWK8QEAFVAFMA/AFcANsBdQBiAZEA1AEEAZoAuQDyAL0BwQBfgD+ACoA5
 gEGAJ4BGgA6AS4AlgDWATYAegCuAH4BWgAvSAA4AMgAzAcWABIBXXU5TQXBwbGljYXRpb27SADcAOAHI
@@ -660,11 +660,11 @@ Y3JvbGxlcl8QD1RleHQgRmllbGQgQ2VsbF8QEVRleHQgRmllbGQgQ2VsbC0yXxAQUGFuZWwgKEFkaXVt
 SFVEKV8QEVRleHQgRmllbGQgQ2VsbC0xXxAhVGV4dCBGaWVsZCBDZWxsIChDdXJyZW50IFN0YXR1czop
 XxAdU3RhdGljIFRleHQgKEN1cnJlbnQgU3RhdHVzOildU3RhdGljIFRleHQtMV8QEVZlcnRpY2FsIFNj
 cm9sbGVyXUN1c3RvbSBWaWV3LTFbU2Nyb2xsIFZpZXdbQ3VzdG9tIFZpZXdbQXBwbGljYXRpb25cQ29u
-dGVudCBWaWV30gAOAD4BsQIXgFig0gAOAD4BsQIagFig0gAOAD4BsQIdgFivEBcAHwFVAFMA/AFcAE0A
-2wF1AGIBkQDUAQQBmgBIALkASgBMAPIAvQBJAcEASwBfgAKAP4AKgDmAQYBFgCeARoAOgEuAJYA1gE2A
-CYAegCSAPoArgB+AHYBWgCqAC9IADgA+AbECN4BYrxAXAjgCOQI6AjsCPAI9Aj4CPwJAAkECQgJDAkQC
+dGVudCBWaWV30gAOAD4BsQIXgFig0gAOAD4BsQIagFig0gAOAD4BsQIdgFivEBcAHwFVAFMATQD8AEsB
+XADbAXUAYgGRANQBBAGaAEwAuQBKAPIAvQBJAcEASABfgAKAP4AKgEWAOYAqgEGAJ4BGgA6AS4AlgDWA
+TYA+gB6AJIArgB+AHYBWgAmAC9IADgA+AbECN4BYrxAXAjgCOQI6AjsCPAI9Aj4CPwJAAkECQgJDAkQC
 RQJGAkcCSAJJAkoCSwJMAk0CToBxgHKAc4B0gHWAdoB3gHiAeYB6gHuAfIB9gH6Af4CAgIGAgoCDgISA
-hYCGgIcQUBBNEB4QSBBOEBIQJBAfEBkQIxBHEBoQJRBKECYQTxBGEEkQSxP//////////RBMEATSAA4A
+hYCGgIcQUBBNEB4QEhBIEEwQThAkEB8QGRAjEEcQGhBPEEoQJhBGEEkQSxP//////////RAlEATSAA4A
 PgBGAmeAMKDSAA4APgGxAmqAWKDSAA4APgGxAm2AWKDSADcAOAJvAnCiAnAAO15OU0lCT2JqZWN0RGF0
 YQAIABkAIgAnADEAOgA/AEQAUgBUAGYBgQGHAdIB2QHgAe4CAAIcAioCNgJCAlACWwJpAoUCkwKmArgC
 0gLcAukC6wLtAu8C8QLzAvUC9wL5AvsC/QL/AwEDAwMFAwcDCQMLAw0DFgMiAyQDJgM7A0QDTQNYA10D
