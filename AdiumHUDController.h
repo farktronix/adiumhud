@@ -15,30 +15,27 @@ typedef enum {
     kAdiumHUDPanelMaximized = 310
 } AdiumHUDSize;
 
-@interface AdiumHUDController : NSObject {
+@interface AdiumHUDController : NSWindowController {
     NSObject<AIAdium> *_adium;
     
     AdiumHUDSize _panelSize;
-
-    IBOutlet AdiumHUDPanel *_hudPanel;
     
 	NSView								*controllerView_messages;
 	IBOutlet	NSScrollView			*scrollView_messages;
 	IBOutlet	NSView					*customView_messages;
     
-    NSObject<AIMessageDisplayController>	*messageDisplayController;
+    NSObject<AIMessageDisplayController>    *messageDisplayController;
     
     IBOutlet NSTextField                *messageEntry;
     
     IBOutlet NSTextField *_statusType;
     IBOutlet NSTextField *_statusText;
 }
-- (id) initWithAdium:(NSObject<AIAdium>*)adium;
+- (id) initWithWindowNibName:(NSString *)windowName adium:(NSObject<AIAdium>*)adium;
 - (void) setStatus:(AIStatus *)status;
-- (void) showHUDPanel;
-- (void) hideHUDPanel;
 - (void) toggleHUDPanel;
 - (void) resize;
 
 @property (assign) AdiumHUDSize panelSize;
+@property (retain) NSObject<AIAdium> *adium;
 @end

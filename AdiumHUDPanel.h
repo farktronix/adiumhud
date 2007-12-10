@@ -10,7 +10,7 @@
 
 
 @interface AdiumHUDPanel : NSPanel {
-
 }
-
+- (void) showHUD;
+- (void) hideHUD;
 @end

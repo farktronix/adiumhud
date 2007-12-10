@@ -128,9 +128,12 @@ AdiumHUDPlugin *_sAdiumHUDPlugin = nil;
     _sAdiumHUDPlugin = [self retain];
     [self registerHotKey];
     
-    _hudController = [[AdiumHUDController alloc] initWithAdium:adium];
-    if (![NSBundle loadNibNamed:@"AdiumHUD" owner:_hudController]) {
-        NSLog(@"Could not bundle load AdiumHUD UI");
+    _hudController = [[AdiumHUDController alloc] initWithWindowNibName:@"AdiumHUD" adium:adium];
+
+    [_hudController window]; //kick the window to actually load it
+    if (![_hudController isWindowLoaded]) {
+//    if (![NSBundle loadNibNamed:@"AdiumHUD" owner:_hudController]) {
+        NSLog(@"Could not load AdiumHUD UI");
         return;
     }
     
@@ -139,6 +142,7 @@ AdiumHUDPlugin *_sAdiumHUDPlugin = nil;
 
 - (void)uninstallPlugin
 {
+    [[adium notificationCenter] removeObserver:self];
     [_hudController release];
     [_sAdiumHUDPlugin release];
     _sAdiumHUDPlugin = nil;
