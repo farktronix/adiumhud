@@ -6,6 +6,7 @@
 //
 
 #import "AdiumHUDPanel.h"
+#import <QuartzCore/CAAnimation.h>
 
 @implementation AdiumHUDPanel
 // These overrides are necessary to make the NSPanel show up as the primary window
@@ -18,6 +19,10 @@
         [self setOpaque:NO];
         [self setLevel:NSFloatingWindowLevel];
         [self setAlphaValue:0.00];
+        
+        CAAnimation *anim = [CABasicAnimation animation];
+        [anim setDelegate:self];
+        [self setAnimations:[NSDictionary dictionaryWithObject:anim forKey:@"alphaValue"]];
     }
     return self;
 }
@@ -34,6 +39,13 @@
 - (BOOL) acceptsFirstResponder { return YES; }
 - (BOOL) canBeVisibleOnAllSpaces { return NO; }
 
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    if (self.alphaValue == 0.0) {
+        [super orderOut:self];
+    }
+}
+
 - (void) showHUD
 {
     NSLog(@"Showing HUD panel");
@@ -45,6 +57,5 @@
 {
     NSLog(@"Hiding HUD panel");
     [[self animator] setAlphaValue:0.0];
-    [super orderOut:self];
 }
 @end
